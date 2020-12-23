@@ -6,9 +6,11 @@ import kurmogeko.multiplant.domain.entities.Session;
 import kurmogeko.multiplant.domain.repo.SessionRepository;
 import kurmogeko.multiplant.domain.values.UserInformation;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
 @AllArgsConstructor
+@Service
 public class HttpSessionService {
     private final SessionService sessionService;
     private final SessionRepository repository;

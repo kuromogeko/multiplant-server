@@ -4,6 +4,7 @@ import kurmogeko.multiplant.application.HttpSessionService;
 import kurmogeko.multiplant.application.exceptions.NotFoundException;
 import kurmogeko.multiplant.domain.entities.Session;
 import kurmogeko.multiplant.domain.exceptions.SessionExistsException;
+import kurmogeko.multiplant.domain.values.UserInformation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,6 +44,11 @@ public class SessionController {
                         .title("Request error")
                         .description("Not found")
                         .build()));
+    }
+
+    @PostMapping("/sesssion/{name}/info")
+    public Mono<ResponseEntity<Session>> sendUserInformation(@PathVariable String name, @RequestBody UserInformation information){
+        return sessionService.addUpdateUser(information, name).map(ResponseEntity::ok);
     }
 
 
