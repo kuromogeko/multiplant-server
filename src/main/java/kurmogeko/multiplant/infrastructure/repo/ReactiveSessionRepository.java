@@ -1,6 +1,7 @@
-package kurmogeko.multiplant.infrastructure;
+package kurmogeko.multiplant.infrastructure.repo;
 
 import kurmogeko.multiplant.domain.entities.Session;
+import kurmogeko.multiplant.domain.repo.SessionRepository;
 import lombok.AllArgsConstructor;
 import org.ehcache.Cache;
 import org.springframework.stereotype.Component;
@@ -10,7 +11,7 @@ import java.util.Objects;
 
 @Component
 @AllArgsConstructor
-public class ReactiveSessionRepository implements ReactiveRepository<String, Session> {
+public class ReactiveSessionRepository implements SessionRepository {
 
     private final Cache<String, Session> cache;
 

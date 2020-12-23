@@ -1,4 +1,4 @@
-package kurmogeko.multiplant.infrastructure;
+package kurmogeko.multiplant.infrastructure.repo;
 
 import kurmogeko.multiplant.domain.entities.Session;
 import org.ehcache.Cache;

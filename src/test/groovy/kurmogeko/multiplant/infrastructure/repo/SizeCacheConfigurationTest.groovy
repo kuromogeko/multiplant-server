@@ -1,6 +1,7 @@
-package kurmogeko.multiplant.infrastructure
+package kurmogeko.multiplant.infrastructure.repo
 
 import kurmogeko.multiplant.ObjectMother
+import kurmogeko.multiplant.infrastructure.repo.SizeCacheConfiguration
 import spock.lang.Specification
 
 class SizeCacheConfigurationTest extends Specification {
