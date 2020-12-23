@@ -4,6 +4,7 @@ import kurmogeko.multiplant.domain.entities.Session;
 import kurmogeko.multiplant.domain.repo.SessionRepository;
 import lombok.AllArgsConstructor;
 import org.ehcache.Cache;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -11,6 +12,7 @@ import java.util.Objects;
 
 @Component
 @AllArgsConstructor
+@ConditionalOnProperty(name="multiplant.usecache")
 public class ReactiveSessionRepository implements SessionRepository {
 
     private final Cache<String, Session> cache;

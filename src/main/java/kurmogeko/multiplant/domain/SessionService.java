@@ -3,6 +3,7 @@ package kurmogeko.multiplant.domain;
 import kurmogeko.multiplant.domain.entities.Session;
 import kurmogeko.multiplant.domain.exceptions.SessionExistsException;
 import kurmogeko.multiplant.domain.repo.SessionRepository;
+import kurmogeko.multiplant.domain.values.UserInformation;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
@@ -23,6 +24,11 @@ public class SessionService {
 
     private Session getDefaultSession(String name) {
         return Session.builder().key(name).userInformations(new ArrayList<>()).build();
+    }
+
+    public Mono<Session> updateUserInformation(Session s, UserInformation information){
+        s.updateUserInformation(information);
+        return sessionRepository.save(s);
     }
 
 }
