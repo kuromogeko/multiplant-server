@@ -47,7 +47,7 @@ public class SessionController {
     }
 
     @PostMapping("/sessions/{name}/info")
-    public Mono<ResponseEntity<Session>> sendUserInformation(@PathVariable String name, @RequestBody UserInformation information){
+    public Mono<ResponseEntity<Session>> sendUserInformation(@PathVariable String name, @RequestBody UserInformation information) {
         return sessionService.addUpdateUser(information, name).map(ResponseEntity::ok);
     }
 

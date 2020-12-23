@@ -26,7 +26,7 @@ public class SessionService {
         return Session.builder().key(name).userInformations(new ArrayList<>()).build();
     }
 
-    public Mono<Session> updateUserInformation(Session s, UserInformation information){
+    public Mono<Session> updateUserInformation(Session s, UserInformation information) {
         s.updateUserInformation(information);
         return sessionRepository.save(s);
     }

@@ -12,7 +12,7 @@ import java.util.Objects;
 
 @Component
 @AllArgsConstructor
-@ConditionalOnProperty(name="multiplant.usecache")
+@ConditionalOnProperty(name = "multiplant.usecache")
 public class ReactiveSessionRepository implements SessionRepository {
 
     private final Cache<String, Session> cache;
