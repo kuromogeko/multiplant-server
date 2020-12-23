@@ -17,12 +17,12 @@ public class SessionController {
 
     private final HttpSessionService sessionService;
 
-    @GetMapping("/session/{name}")
+    @GetMapping("/sessions/{name}")
     public Mono<ResponseEntity<Session>> getSessionByName(@PathVariable String name) {
         return sessionService.getSession(name).map(ResponseEntity::ok).switchIfEmpty(Mono.error(new NotFoundException()));
     }
 
-    @PostMapping("/session")
+    @PostMapping("/sessions")
     public Mono<ResponseEntity<Session>> addSession(@RequestBody SessionRequest request) {
         return sessionService.newSessionByName(request.getName())
                 .map(session -> ResponseEntity.status(HttpStatus.CREATED).body(session));
@@ -46,7 +46,7 @@ public class SessionController {
                         .build()));
     }
 
-    @PostMapping("/sesssion/{name}/info")
+    @PostMapping("/sessions/{name}/info")
     public Mono<ResponseEntity<Session>> sendUserInformation(@PathVariable String name, @RequestBody UserInformation information){
         return sessionService.addUpdateUser(information, name).map(ResponseEntity::ok);
     }
