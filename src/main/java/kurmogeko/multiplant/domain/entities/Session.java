@@ -18,7 +18,7 @@ public class Session {
     private List<UserInformation> userInformations;
 
     public void updateUserInformation(UserInformation information) {
-        var streamWithoutInformation = this.userInformations
+        this.userInformations = this.userInformations
                 .stream()
                 .filter(info -> !info.getUsername().equals(information.getUsername()))
                 .collect(Collectors.toList());
